@@ -41,6 +41,7 @@ document.getElementById('key-pad').addEventListener('click', function(event){
 });
 
 
+
 // verify pin function
 function verifyPin(){
     const currentPin = document.getElementById('pin-show').value;
@@ -63,9 +64,12 @@ function verifyPin(){
         let machCount = parseInt(machCountText.innerText) - 1;
         if (machCount < 1) {
             const pinShow = document.getElementById('pin-show');
-            document.getElementById('massage').innerText = 'Set the new PIN again';
+            document.getElementById('massage').innerText = 'Set the new PIN again or Wait 3 Second';
             pinShow.value = '';
-            window.location.reload();
+            
+            setTimeout(function() {
+                location.reload();
+              }, 3000);
         }
         else{
             machCountText.innerText = machCount;
